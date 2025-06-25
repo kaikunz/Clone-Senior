@@ -16,4 +16,5 @@ CMD ["npm", "run", "dev"]
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
