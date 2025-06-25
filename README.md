@@ -19,7 +19,6 @@ docker compose up --build
 ```
 
 ## พร้อม
-- 
 ```
 http://localhost:3000
 ```
