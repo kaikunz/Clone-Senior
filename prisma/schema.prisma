@@ -220,7 +220,7 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   userId       String?  @map("user_id")
-  sessionToken String   @unique @map("session_token") @db.Text
+  sessionToken String   @unique @db.Text @map("session_token") //mysql @db.VarChar(500) @unique //postgresql @unique @db.Text
   accessToken  String?  @map("access_token") @db.Text
   expires      DateTime
   user         User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
