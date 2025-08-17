@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "dev": "node socket.js",
     "build": "next build",
-    "start": "next start",
     "start": "NODE_ENV=production node socket.js",
     "lint": "next lint",
-    "xlsx_import": "node scripts/import_xlsx.js"
+    "xlsx_import": "node scripts/import_xlsx.js",
+    "create_admin": "node scripts/create_account.js"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
