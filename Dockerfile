@@ -1,6 +1,7 @@
-FROM node:18
+FROM node:22
 
 WORKDIR /chickeam
+
 
 COPY package.json package-lock.json ./
 
