@@ -15,6 +15,7 @@ services:
       NEXT_PUBLIC_API_URL: "http://202.28.49.122:3000"
       NEXTAUTH_URL: "http://202.28.49.122:3000"
       AUTH_TRUST_HOST: true
+      JWT_SECRET: kinmha112
 
     depends_on:
       db:
