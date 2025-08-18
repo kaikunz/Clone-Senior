@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { hash } = require("bcryptjs");
 const { PrismaClient } = require('@prisma/client');
+import crypto from "crypto";
 
 const prisma = new PrismaClient();
 
@@ -9,6 +10,10 @@ async function create_account() {
 
     console.log(`Account Creating...`);
 
+    function hash(password) {
+      return crypto.createHash("sha256").update(password).digest("hex");
+    }
+
     let user = await prisma.user.findUnique({
         where: { email: "test@admin.com" },
     });
@@ -16,7 +21,7 @@ async function create_account() {
     if (!user) {
         
         const password = "1234"
-        const hashed_password = await hash(password, 12);
+        const hashed_password = await hash(password);
 
         user = await prisma.user.create({
             data: {
