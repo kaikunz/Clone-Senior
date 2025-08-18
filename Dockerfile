@@ -12,7 +12,7 @@ RUN npx prisma generate
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
 
 COPY --chmod=755 ./docker-entrypoint.sh /docker-entrypoint.sh
 

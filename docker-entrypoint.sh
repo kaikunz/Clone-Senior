@@ -1,6 +1,8 @@
 #!/bin/sh
 
-npx prisma migrate dev --name init
+npm run build
+
+npx prisma migrate deploy
 
 npm run create_admin
 

@@ -7,4 +7,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 next-env.d.ts
-prisma/migrations
