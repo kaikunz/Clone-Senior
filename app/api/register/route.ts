@@ -1,14 +1,19 @@
-import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 import prisma from "@/prisma/prisma";
 import { createUserSchema } from "@/lib/user-schema";
 import { ZodError } from "zod";
+import crypto from "crypto";
+
+function hash(password: string) {
+  return crypto.createHash("sha256").update(password).digest("hex");
+}
 
 export async function POST(req: Request) {
   try {
     const { name, email, password } = createUserSchema.parse(await req.json());
 
-    const hashed_password = await hash(password, 12);
+    const hashed_password = await hash(password);
+    
 
     const user = await prisma.user.create({
       data: {

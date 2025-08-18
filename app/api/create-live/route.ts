@@ -5,7 +5,7 @@ import path from "path";
 import fs from 'fs';
 import crypto from "crypto";
 
-export function generateRandomString(length: number = 7): string {
+ function generateRandomString(length: number = 7): string {
   const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const charactersLength = characters.length;
   let randomString = '';

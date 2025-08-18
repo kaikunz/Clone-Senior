@@ -7,7 +7,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
 import { LoginUserInput, loginUserSchema } from '@/lib/user-schema';
+import crypto from "crypto";
 
+function hash(password: string) {
+  return crypto.createHash("sha256").update(password).digest("hex");
+}
 
 
 export const LoginForm = () => {
@@ -32,11 +36,12 @@ export const LoginForm = () => {
   const onSubmitHandler: SubmitHandler<LoginUserInput> = async (values) => {
     try {
       setSubmitting(true);
+      const hashed_password = await hash(values.password);
 
       const res = await signIn('credentials', {
         redirect: false,
         email: values.email,
-        password: values.password,
+        password: hashed_password,
         redirectTo: callbackUrl,
       });
 
