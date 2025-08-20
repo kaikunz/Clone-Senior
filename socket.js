@@ -85,6 +85,6 @@ app.prepare().then(() => {
 
     server.listen(3000, (err) => {
         if (err) throw err;
-        console.log("> WebSocket Server Ready on http://localhost:3000/connectwebsocket");
+        console.log("> WebSocket Server Ready on http://202.28.49.122:3000/connectwebsocket");
     });
 });
